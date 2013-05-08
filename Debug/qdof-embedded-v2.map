@@ -6,14 +6,21 @@ d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/
                               main.o (__do_copy_data)
 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr6\libgcc.a(_clear_bss.o)
                               hardware/uart.o (__do_clear_bss)
+d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
+                              main.o (__iob)
+
+Allocating common symbols
+Common symbol       size              file
+
+__iob               0x6               d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
 
 Discarded input sections
 
  .bss           0x00000000        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6/crtm2560.o
  .text          0x00000000        0x0 hardware/uart.o
  .bss           0x00000000        0x0 hardware/uart.o
- .text._Z9uart_getcv
-                0x00000000       0x36 hardware/uart.o
+ .text._Z9uart_putsPKc
+                0x00000000       0x1e hardware/uart.o
  .text._Z11uart_puts_pPKc
                 0x00000000       0x24 hardware/uart.o
  .text._Z10uart1_initj
@@ -26,6 +33,11 @@ Discarded input sections
                 0x00000000       0x1e hardware/uart.o
  .text._Z12uart1_puts_pPKc
                 0x00000000       0x24 hardware/uart.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
  .text          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
  .text          0x00000000        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr6\libgcc.a(_exit.o)
@@ -67,6 +79,8 @@ Discarded input sections
                 0x00000000        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
                 0x00000000        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr6\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
+ .bss           0x00000000        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
 
 Memory Configuration
 
@@ -185,7 +199,7 @@ LOAD d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolc
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x330
+.text           0x00000000      0x4a6
  *(.vectors)
  .vectors       0x00000000       0xe4 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6/crtm2560.o
                 0x00000000                __vector_default
@@ -305,25 +319,34 @@ LOAD d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolc
  .text._Z9uart_initj
                 0x000001e4       0x32 hardware/uart.o
                 0x000001e4                _Z9uart_initj
+ .text._Z9uart_getcv
+                0x00000216       0x36 hardware/uart.o
+                0x00000216                _Z9uart_getcv
  .text._Z9uart_putch
-                0x00000216       0x2a hardware/uart.o
-                0x00000216                _Z9uart_putch
- .text._Z9uart_putsPKc
-                0x00000240       0x1c hardware/uart.o
-                0x00000240                _Z9uart_putsPKc
+                0x0000024c       0x2a hardware/uart.o
+                0x0000024c                _Z9uart_putch
  .text.__vector_36
-                0x0000025c       0x64 hardware/uart.o
-                0x0000025c                __vector_36
+                0x00000276       0x64 hardware/uart.o
+                0x00000276                __vector_36
  .text.__vector_37
-                0x000002c0       0x5c hardware/uart.o
-                0x000002c0                __vector_37
- .text.main     0x0000031c       0x10 main.o
-                0x0000031c                main
-                0x0000032c                . = ALIGN (0x2)
+                0x000002da       0x5c hardware/uart.o
+                0x000002da                __vector_37
+ .text._ZN9NotModuleIcE6updateEPv
+                0x00000336       0x7c main.o
+                0x00000336                _ZN9NotModuleIcE6updateEPv
+ .text._Z13stdio_putcharcP6__file
+                0x000003b2        0x8 main.o
+                0x000003b2                _Z13stdio_putcharcP6__file
+ .text._ZN9LedModule6updateEPv
+                0x000003ba       0x18 main.o
+                0x000003ba                _ZN9LedModule6updateEPv
+ .text.main     0x000003d2       0xd0 main.o
+                0x000003d2                main
+                0x000004a2                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000032c        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr6\libgcc.a(_exit.o)
-                0x0000032c                _exit
-                0x0000032c                exit
+ .fini9         0x000004a2        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr6\libgcc.a(_exit.o)
+                0x000004a2                _exit
+                0x000004a2                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -342,11 +365,11 @@ LOAD d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolc
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000032c        0x4 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr6\libgcc.a(_exit.o)
+ .fini0         0x000004a2        0x4 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr6\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000330                _etext = .
+                0x000004a6                _etext = .
 
-.data           0x00800200        0xc load address 0x00000330
+.data           0x00800200        0xc load address 0x000004a6
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800200        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6/crtm2560.o
@@ -355,17 +378,22 @@ LOAD d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolc
  .data          0x00800200        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr6\libgcc.a(_exit.o)
  .data          0x00800200        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr6\libgcc.a(_copy_data.o)
  .data          0x00800200        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/avr6\libgcc.a(_clear_bss.o)
+ .data          0x00800200        0x0 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
- .rodata.str1.1
-                0x00800200        0xc main.o
+ .rodata._ZTV9NotModuleIcE
+                0x00800200        0x6 main.o
+                0x00800200                _ZTV9NotModuleIcE
+ .rodata._ZTV9LedModule
+                0x00800206        0x6 main.o
+                0x00800206                _ZTV9LedModule
  *(.gnu.linkonce.d*)
                 0x0080020c                . = ALIGN (0x2)
                 0x0080020c                _edata = .
                 0x0080020c                PROVIDE (__data_end, .)
 
-.bss            0x0080020c       0x8a
+.bss            0x0080020c       0xa0
                 0x0080020c                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
@@ -397,17 +425,24 @@ LOAD d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolc
                 0x00800256       0x20 hardware/uart.o
  .bss._ZL10UART_TxBuf
                 0x00800276       0x20 hardware/uart.o
+ .bss._ZL7uartout
+                0x00800296        0xe main.o
+ .bss._ZZN10DataModuleC1EvE7_lastId
+                0x008002a4        0x2 main.o
+                0x008002a4                _ZZN10DataModuleC1EvE7_lastId
  *(COMMON)
-                0x00800296                PROVIDE (__bss_end, .)
-                0x00000330                __data_load_start = LOADADDR (.data)
-                0x0000033c                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008002a6        0x6 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
+                0x008002a6                __iob
+                0x008002ac                PROVIDE (__bss_end, .)
+                0x000004a6                __data_load_start = LOADADDR (.data)
+                0x000004b2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800296        0x0
-                0x00800296                PROVIDE (__noinit_start, .)
+.noinit         0x008002ac        0x0
+                0x008002ac                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800296                PROVIDE (__noinit_end, .)
-                0x00800296                _end = .
-                0x00800296                PROVIDE (__heap_start, .)
+                0x008002ac                PROVIDE (__noinit_end, .)
+                0x008002ac                _end = .
+                0x008002ac                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -453,6 +488,7 @@ LOAD d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolc
  .comment       0x00000000       0x2f hardware/uart.o
                                  0x30 (size before relaxing)
  .comment       0x00000000       0x30 main.o
+ .comment       0x00000000       0x30 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
 
 .debug
  *(.debug)
@@ -466,47 +502,55 @@ LOAD d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolc
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0xa8
+.debug_aranges  0x00000000       0xd8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x88 hardware/uart.o
  .debug_aranges
-                0x00000088       0x20 main.o
+                0x00000088       0x38 main.o
+ .debug_aranges
+                0x000000c0       0x18 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0x6b2
+.debug_info     0x00000000     0x1103
  *(.debug_info)
  .debug_info    0x00000000      0x5c1 hardware/uart.o
- .debug_info    0x000005c1       0xf1 main.o
+ .debug_info    0x000005c1      0x9f4 main.o
+ .debug_info    0x00000fb5      0x14e d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x1f1
+.debug_abbrev   0x00000000      0x5ef
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x15c hardware/uart.o
- .debug_abbrev  0x0000015c       0x95 main.o
+ .debug_abbrev  0x0000015c      0x3d2 main.o
+ .debug_abbrev  0x0000052e       0xc1 d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
 
-.debug_line     0x00000000      0x46f
+.debug_line     0x00000000      0x72e
  *(.debug_line)
  .debug_line    0x00000000      0x40d hardware/uart.o
- .debug_line    0x0000040d       0x62 main.o
+ .debug_line    0x0000040d      0x236 main.o
+ .debug_line    0x00000643       0xeb d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
 
-.debug_frame    0x00000000      0x1d0
+.debug_frame    0x00000000      0x248
  *(.debug_frame)
  .debug_frame   0x00000000      0x1ac hardware/uart.o
- .debug_frame   0x000001ac       0x24 main.o
+ .debug_frame   0x000001ac       0x9c main.o
 
-.debug_str      0x00000000      0x2fb
+.debug_str      0x00000000      0x53c
  *(.debug_str)
- .debug_str     0x00000000      0x2e8 hardware/uart.o
+ .debug_str     0x00000000      0x2e3 hardware/uart.o
                                 0x321 (size before relaxing)
- .debug_str     0x000002e8       0x13 main.o
-                                 0xfc (size before relaxing)
+ .debug_str     0x000002e3      0x1ed main.o
+                                0x323 (size before relaxing)
+ .debug_str     0x000004d0       0x6c d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.7.2/../../../../avr/lib/avr6\libc.a(iob.o)
+                                0x10d (size before relaxing)
 
-.debug_loc      0x00000000      0x5da
+.debug_loc      0x00000000      0x907
  *(.debug_loc)
  .debug_loc     0x00000000      0x5da hardware/uart.o
+ .debug_loc     0x000005da      0x32d main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -514,10 +558,10 @@ LOAD d:/programme/atmel/atmel toolchain/avr8 gcc/native/3.4.2.939/avr8-gnu-toolc
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0xb8
+.debug_ranges   0x00000000      0x160
  *(.debug_ranges)
  .debug_ranges  0x00000000       0xa8 hardware/uart.o
- .debug_ranges  0x000000a8       0x10 main.o
+ .debug_ranges  0x000000a8       0xb8 main.o
 
 .debug_macro
  *(.debug_macro)

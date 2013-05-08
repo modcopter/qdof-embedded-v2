@@ -33,7 +33,8 @@ LIB_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../include \
-../hardware
+../hardware \
+../include/data
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
