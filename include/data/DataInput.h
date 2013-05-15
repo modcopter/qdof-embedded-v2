@@ -6,24 +6,62 @@
  */ 
 
 
-#ifndef DATAINPUT_H_
-#define DATAINPUT_H_
+#ifndef IDATAINPUT_H_
+#define IDATAINPUT_H_
 
 #include "data/DataModule.h"
 
-class DataInput {
+class DataValue {
 public:
-	DataInput(DataModule *parent) {
-		_parent = parent;
+	void *getRawData() { return _data; }
+	void setRawData(void *data) { _data = data; }
+	
+		
+	template <typename T> T getData() {
+		return *(T *)_data;
 	}
 	
-	void update(void *data) {
-		_parent->update(data);
+	template <typename T> void setData(T data) {
+		_data = &data;
+	}
+	
+	template <typename T> operator T() {
+		return this->getData<T>();
 	}
 	
 private:
+	void *_data;
+};
+
+class DataInput{
+public:
+	DataInput(DataModule *parent) {
+		static int _lastId = 0;
+		this->id = _lastId++;
+		//
+		this->_parent = parent;
+	}
+	
+	int getId() { return id; }
+
+	void __update(void * data) {
+		_data.setRawData(data);
+		_parent->OnInputChanged(this);
+	}
+	
+	void *getRawData() {
+		return _data.getRawData();
+	}
+	
+	DataValue getData() {
+		return _data;
+	}
+	
+private:
+	int id;
 	DataModule *_parent;
+	DataValue _data;
 };
 
 
-#endif /* DATAINPUT_H_ */
+#endif /* IDATAINPUT_H_ */

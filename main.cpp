@@ -17,35 +17,16 @@
 #include "data/DataOutput.h"
 
 int stdio_putchar(char c, FILE *stream);
+void update_led(char c);
 static FILE uartout = {0};
-
-class LedModule : public DataModule {
-	public:
-	DataInput inp;
-	LedModule() : inp(this) {}
 	
-	void update(void *data) {
-		char state = *(char *)(data);
-		uart_putc(state);
-		//
-		if (state)
-		PORTB |= _BV(PORTB7);
-		else
-		PORTB &= ~_BV(PORTB7);
-	}
-};
-
-template <class T>
-class NotModule : public DataModule {
-	public:
-	DataInput inp;
-	DataOutput<T> out;
-	NotModule() : inp(this) {}
+class SerialPort : public DataModule {
+	DataOutput<char> output;
+	DataInput input;
 	
-	void update(void *data) {
-		T temp = *(T *)(data);
-		out = compl temp;
-	}
+	SerialPort() : input(this) {}
+	
+	
 };
 
 int main(void)
@@ -53,26 +34,22 @@ int main(void)
 	uart_init(UART_BAUD_SELECT(19200, F_CPU));
 	fdev_setup_stream (&uartout, stdio_putchar, NULL, _FDEV_SETUP_WRITE);
 	stdout = &uartout;
-	sei();
 	
 	DDRB |= _BV(PORTB7);
 	
-	NotModule<char> mod;
-	LedModule led;
-	DataOutput<char> out;
+	TCCR1B |= _BV(CS10);
+	TIMSK1 |= _BV(TOIE1);
 	
-	out > mod.inp;
-	mod.out > led.inp;
-	
-	while(1) {
-		uint16_t c = uart_getc();
-		if ((c & 0xFF00) == 0) {
-			out = c;
-		}
-	}
+	sei();
+
+	while (1);	
 }
 
 int stdio_putchar(char c, FILE *stream) {
 	uart_putc(c);
 	return 0;
+}
+
+ISR(TIMER1_OVF_vect) {
+	
 }

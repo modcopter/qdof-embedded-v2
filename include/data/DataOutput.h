@@ -22,7 +22,7 @@ public:
 	
 	void sendData(T data) {
 		for (int i = 0; i < _connectedInputs; i++) {
-			_inputs[i]->update(&data);
+			_inputs[i]->__update(&data);
 		}
 	}
 	

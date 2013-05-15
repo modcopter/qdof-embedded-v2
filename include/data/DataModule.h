@@ -9,6 +9,8 @@
 #ifndef DATAMODULE_H_
 #define DATAMODULE_H_
 
+class DataInput;
+
 class DataModule {
 public:
 	DataModule() {
@@ -16,10 +18,9 @@ public:
 		this->id = _lastId++;
 	}
 	
-	virtual void update(void *);
-	
+	virtual void OnInputChanged(DataInput *input);
+		
 	int id;
 };
-
 
 #endif /* DATAMODULE_H_ */
